@@ -90,15 +90,3 @@ Pelota Pelotas::GetComponente(int i) const{
     return v[i];
 }
 
-void Pelotas::Colisionar(int id){
-    
-    for(int i = 0; i < this->GetUtil(); i++){
-        
-        if(i != id)
-        {
-            colisionar(this->v[id], this->v[i]);
-        }
-    }
-    
-}
-

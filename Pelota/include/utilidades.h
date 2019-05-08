@@ -29,7 +29,7 @@ void intercambio(float& P1, float& P2);
 
 void intercambio(PColor& P1, PColor& P2);
 
-void colisionar_simple(Pelota &P1, Pelota &P2);
+void colisionar(Pelota &P1, Pelota &P2);
 
 void colisionar(Pelotas& PV);
 

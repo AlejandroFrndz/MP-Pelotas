@@ -80,16 +80,23 @@ void colisionar(Pelota &P1, Pelota &P2){
 }
 
 void colisionar(Pelotas& PV){
-    
-    for(int i = 0; i < PV.util; i++){
-       
-        for(int j = 0; j < PV.util; j++){
-            
-            if(i != j)
+    Pelota P1, P2;
+    bool chocado = false;
+    int i = 0, j= 0;
+    for(i = 0; i < PV.util; i++)
+    {
+        chocado = false;
+        for(j = 0; j < PV.util && !chocado; j++){
+            P1=PV.v[i];
+            P2=PV.v[j];
+            if(P1.colisionado(P2)){
+                chocado = true;
                 colisionar(PV.v[i], PV.v[j]);
+            }
+                
+            
+            
         }
-        
     }
-    
 }
 

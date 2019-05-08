@@ -35,7 +35,6 @@ public:
     friend void mover(Pelotas &P);
     friend void pintar(const Pelotas& Pelotas);
     friend void colisionar(Pelotas& PV);
-    void Colisionar(int id);
 };
 
 #endif /* PELOTAS_H */
