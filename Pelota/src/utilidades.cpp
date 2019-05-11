@@ -75,7 +75,7 @@ void colisionar(Pelota &P1, Pelota &P2){
     if(P1.colisionado(P2)){
         intercambio(P1.dx, P2.dx);
         intercambio(P1.dy, P2.dy);
-        intercambio(P1.color, P2.color);
+        //intercambio(P1.color, P2.color);
     }
 }
 

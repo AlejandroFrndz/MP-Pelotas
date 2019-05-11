@@ -14,8 +14,8 @@
 #ifndef DEFINICIONES_H
 #define DEFINICIONES_H
 
-const int MIN_X = 1080;
-const int MIN_Y = 720;
+const int MIN_X = 800;
+const int MIN_Y = 600;
 const int MAX_VEL = 50;
 const int RADIO = 40;
 const int UMBRAL = 2*RADIO;
