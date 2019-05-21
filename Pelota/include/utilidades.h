@@ -16,6 +16,9 @@
 
 #include "Pelotas.h"
 #include "Pelota.h"
+#include <string>
+
+using namespace std;
 
 void pintar(const Pelota& P);
 
@@ -32,6 +35,13 @@ void intercambio(PColor& P1, PColor& P2);
 void colisionar(Pelota &P1, Pelota &P2);
 
 void colisionar(Pelotas& PV);
+
+void Add(const Pelota &n1, Pelotas &PV);
+
+
+std::string ToString(PColor C);
+
+PColor ToPColor(std::string C);
 
 
 #endif /* UTILIDADES_H */

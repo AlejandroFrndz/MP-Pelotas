@@ -21,6 +21,14 @@ enum class PColor {
 };
 
 class Pelota {
+    private:
+    float x;
+    float y;
+    float dx;
+    float dy;
+    float radio;
+    PColor color;
+    
 public:
     Pelota();
     Pelota(float X, float Y);
@@ -33,17 +41,12 @@ public:
     void SetPosicion(float X, float Y);
     void SetVelocidad(float DX, float DY);
     void SetColor(PColor COLOR);
+    void SetRadio(float r);
     float distancia(const Pelota &n2);
     bool colisionado(const Pelota &n2);
     void mover();
     friend void colisionar(Pelota &P1, Pelota &P2);
-private:
-    float x;
-    float y;
-    float dx;
-    float dy;
-    constexpr static const float radio = RADIO;
-    PColor color;
+    bool operator==(const Pelota &P2) const;
 };
 
 #endif /* PELOTA_H */

@@ -65,8 +65,9 @@ int main() {
                 P.SetPosicion(x,y);
                 P.SetVelocidad(dx,dy);
                 P.SetColor(color);
+                P.SetRadio(radio);
             
-                PV.MeterPelota(P);
+                PV+=P;
             }
     
             fin.close();

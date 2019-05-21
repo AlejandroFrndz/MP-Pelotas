@@ -5,17 +5,20 @@
  */
 
 /* 
- * File:   definiciones.h
+ * File:   Simulador.cpp
  * Author: alejandro
- *
- * Created on 2 de mayo de 2019, 16:29
+ * 
+ * Created on 14 de mayo de 2019, 11:57
  */
 
-#ifndef DEFINICIONES_H
-#define DEFINICIONES_H
+#include "Simulador.h"
 
-const int MAX_VEL = 20;
-const double UMBRAL = 0.025;
+Simulador::Simulador() {
+}
 
-#endif /* DEFINICIONES_H */
+Simulador::Simulador(const Simulador& orig) {
+}
+
+Simulador::~Simulador() {
+}
 

@@ -13,21 +13,23 @@
 
 #include "Pelota.h"
 #include "definiciones.h"
+#include "utilidades.h"
 #include <cstdlib>
 #include <cmath>
 #include <ctime>
 
-
+using namespace std;
 
 Pelota::Pelota() {
+    
     srand(time(0));
     
-    x = (rand() % MIN_X);
-    y = (rand() % MIN_Y);
+    x = (rand() % 800);
+    y = (rand() % 600);
     dx = (rand() % MAX_VEL);
     dy = (rand() % MAX_VEL);
-    color = PColor::AMARILLO;
-    
+    radio = 30;
+    color = PColor::VERDE;
 }
 
 Pelota::Pelota(float X, float Y) {
@@ -35,6 +37,7 @@ Pelota::Pelota(float X, float Y) {
     y = Y;
     dx = dy = 1.0;
     color = PColor::ROJO;
+    radio = 40;
 }
 
 float Pelota::GetX() const{
@@ -80,14 +83,23 @@ void Pelota::SetColor(PColor COLOR){
     color = COLOR;
 }
 
+void Pelota::SetRadio(float r){
+    radio = r;
+}
+
 float Pelota::distancia(const Pelota &n2){
     return sqrt(pow(x-n2.GetX(),2)+pow(y-n2.GetY(),2));
 }
 
 bool Pelota::colisionado(const Pelota &n2){
-    return this->distancia(n2) < UMBRAL;
+    return this->distancia(n2) < GetRadio() + n2.GetRadio() + UMBRAL;
 }
 
 void Pelota::mover(){
     this->SetPosicion(x+dx,y+dy);
 }
+
+bool Pelota::operator==(const Pelota &P2) const{
+    return (ToString(color) == ToString(P2.color) && radio == P2.radio);
+}
+  
