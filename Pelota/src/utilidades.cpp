@@ -10,6 +10,7 @@
 #include "miniwin.h"
 #include "Pelotas.h"
 #include <cstring>
+#include <fstream>
 
 using namespace std;
 using namespace miniwin;
@@ -149,3 +150,57 @@ PColor ToPColor(string C){
     return sol;
 }
 
+istream& operator>>(istream& fin, Pelotas &PV){
+   
+    Pelota P;
+    string color_id;
+    double x, y, dx, dy, radio;
+    int tam;
+    PColor color;
+    
+    fin >> tam;
+    for (int i = 0; i < tam; i++){
+        
+        fin >> x >> y >> dx >> dy >> radio >> color_id;
+        
+        if (color_id == "VERDE")
+            color = PColor::VERDE;
+        if (color_id == "ROJO")
+            color = PColor::ROJO;
+        
+        P.SetPosicion(x,y);
+        P.SetVelocidad(dx,dy);
+        P.SetColor(color);
+        P.SetRadio(radio);
+            
+        PV+=P;
+        
+    }
+    
+    return fin;
+}
+
+ostream& operator<<(ostream & salida, const Pelotas &PV){
+    
+    int  util_final;
+    Pelota P;
+    string color;
+    util_final = PV.GetUtil();
+    
+    
+    for (int i = 0; i < util_final; i++){
+        P = PV.GetComponente(i);
+        
+        if(P.GetColor() == PColor::VERDE)
+            color = "VERDE";
+        
+        else
+            color = "ROJO";
+        
+        
+        salida << P.GetX() <<" "<< P.GetY() << " " << P.GetVelX() << " " << P.GetVelY() << " " << P.GetRadio() << " " << color << endl;
+        
+    }
+    
+    return salida;
+} 

@@ -43,6 +43,9 @@ std::string ToString(PColor C);
 
 PColor ToPColor(std::string C);
 
+std::istream& operator>>(std::istream& is, Pelotas & PV);
+
+ostream& operator<<(ostream & salida, const Pelotas &PV);
 
 #endif /* UTILIDADES_H */
 

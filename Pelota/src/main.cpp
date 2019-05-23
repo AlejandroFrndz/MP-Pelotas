@@ -25,7 +25,9 @@ using namespace std;
 int main() {
    
     ifstream fin;
+    ofstream salida;
     string cabecera;
+    int util_final;
     Pelotas PV;
     int screenx, screeny;
     
@@ -36,40 +38,12 @@ int main() {
         fin >> cabecera;
     
         if(cabecera == "MP−PELOTAS−T−1.0"){
-        
-            Pelota P;
-            double x, y, dx, dy, radio;
-            int tam, color_id;
-            PColor color;
-        
+            
             fin >> screenx;
             fin >> screeny;
-            fin >> tam;
+            
+            fin >> PV;
         
-            for(int i = 0; i < tam; i++){
-            
-                fin >> x >> y >> dx >> dy >> radio >> color_id;
-            
-                switch(color_id){
-                
-                    case 0 : color = PColor::NEGRO; break;
-                    case 1 : color = PColor::ROJO; break;
-                    case 2 : color = PColor::VERDE; break;
-                    case 3 : color = PColor::AZUL; break;
-                    case 4 : color = PColor::AMARILLO; break;
-                    case 5 : color = PColor::MAGENTA; break;
-                    case 6 : color = PColor::CYAN; break;
-                    case 7 : color = PColor::BLANCO; break;
-                }
-            
-                P.SetPosicion(x,y);
-                P.SetVelocidad(dx,dy);
-                P.SetColor(color);
-                P.SetRadio(radio);
-            
-                PV+=P;
-            }
-    
             fin.close();
         
             vredimensiona(screenx, screeny);
@@ -82,9 +56,14 @@ int main() {
                 refresca();
                 espera(25);
             }
+            
+            salida.open("./data/vector_final.txt");
+            if(salida.is_open())
+                salida << PV;
+            
+            salida.close();
    
             vcierra();
-   
         }
         
         else
@@ -94,6 +73,7 @@ int main() {
     else
         cout << "Error en la apertura del archivo de conifguración";
     
+   
     return 0;
 }
 

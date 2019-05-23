@@ -90,7 +90,7 @@ void Pelotas::Nacer(){
     Pelota P;
     
     if(util < 100)
-    *this+=P ;
+        *this+=P ;
     
 }
 
@@ -133,3 +133,4 @@ Pelota& Pelotas::operator[](int i){
 const Pelota& Pelotas::operator[](int i) const{
     return v[i];
 }
+
