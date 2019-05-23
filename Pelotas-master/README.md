@@ -1,2 +1,0 @@
-# Pelotas
-Practica Final MP
