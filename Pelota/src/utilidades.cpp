@@ -163,10 +163,7 @@ istream& operator>>(istream& fin, Pelotas &PV){
         
         fin >> x >> y >> dx >> dy >> radio >> color_id;
         
-        if (color_id == "VERDE")
-            color = PColor::VERDE;
-        if (color_id == "ROJO")
-            color = PColor::ROJO;
+       color = ToPColor(color_id);
         
         P.SetPosicion(x,y);
         P.SetVelocidad(dx,dy);
@@ -191,12 +188,8 @@ ostream& operator<<(ostream & salida, const Pelotas &PV){
     for (int i = 0; i < util_final; i++){
         P = PV.GetComponente(i);
         
-        if(P.GetColor() == PColor::VERDE)
-            color = "VERDE";
-        
-        else
-            color = "ROJO";
-        
+
+        color = ToString(P.GetColor());
         
         salida << P.GetX() <<" "<< P.GetY() << " " << P.GetVelX() << " " << P.GetVelY() << " " << P.GetRadio() << " " << color << endl;
         
