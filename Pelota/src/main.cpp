@@ -31,7 +31,7 @@ int main() {
     Pelotas PV;
     int screenx, screeny;
     
-    fin.open("./data/datos.txt");
+    fin.open("./data/pelotas.txt");
     
     if(fin.is_open()){
     
@@ -57,7 +57,7 @@ int main() {
                 espera(25);
             }
             
-            salida.open("./data/vector_final.txt");
+            salida.open("./data/salida.txt");
             if(salida.is_open())
                 salida << PV;
             

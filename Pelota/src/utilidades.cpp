@@ -99,7 +99,8 @@ void colisionar(Pelotas& PV){
                 if(P1==P2){
                 
                     if(P1.GetColor() == PColor::VERDE){
-                        PV.Nacer();
+                        if(PV.util < 30)
+                            PV.Nacer();
                         colisionar(PV.v[i], PV.v[j]);
                         chocado = true;
                     }
@@ -150,50 +151,50 @@ PColor ToPColor(string C){
     return sol;
 }
 
-istream& operator>>(istream& fin, Pelotas &PV){
+istream& operator>>(istream& in, Pelotas &PV){
    
     Pelota P;
-    string color_id;
-    double x, y, dx, dy, radio;
     int tam;
-    PColor color;
     
-    fin >> tam;
+    in >> tam;
     for (int i = 0; i < tam; i++){
-        
-        fin >> x >> y >> dx >> dy >> radio >> color_id;
-        
-       color = ToPColor(color_id);
-        
-        P.SetPosicion(x,y);
-        P.SetVelocidad(dx,dy);
-        P.SetColor(color);
-        P.SetRadio(radio);
-            
-        PV+=P;
-        
+        in >> P;
+        PV += P;
     }
     
-    return fin;
+    return in;
 }
 
-ostream& operator<<(ostream & salida, const Pelotas &PV){
+istream& operator>>(istream& in, Pelota &P){
     
-    int  util_final;
-    Pelota P;
-    string color;
-    util_final = PV.GetUtil();
+    string color_id;
+    double x, y, dx, dy, radio;
+    PColor color;
     
+    in >> x >> y >> dx >> dy >> radio >> color_id;
     
-    for (int i = 0; i < util_final; i++){
-        P = PV.GetComponente(i);
-        
+    color = ToPColor(color_id);
+    
+    P.SetPosicion(x,y);
+    P.SetVelocidad(dx,dy);
+    P.SetRadio(radio);
+    P.SetColor(color);
+    
+    return in;
+    
+}
 
-        color = ToString(P.GetColor());
-        
-        salida << P.GetX() <<" "<< P.GetY() << " " << P.GetVelX() << " " << P.GetVelY() << " " << P.GetRadio() << " " << color << endl;
-        
-    }
+ostream& operator<<(ostream& out, const Pelotas& PV){
     
-    return salida;
+    out << PV.GetUtil();
+    
+    for(int i = 0; i < PV.GetUtil(); i++)
+        out << PV[i];
+    
+    return out;
 } 
+
+ostream& operator<<(ostream& out, const Pelota& P){
+    
+    out << P.GetX() << " " << P.GetY() << " " << P.GetVelX() << " " << P.GetVelY() << " " << P.GetRadio() << " " << ToString(P.GetColor()) << endl;
+}

@@ -39,13 +39,17 @@ void colisionar(Pelotas& PV);
 void Add(const Pelota &n1, Pelotas &PV);
 
 
-std::string ToString(PColor C);
+string ToString(PColor C);
 
-PColor ToPColor(std::string C);
+PColor ToPColor(string C);
 
-std::istream& operator>>(std::istream& is, Pelotas & PV);
+istream& operator>>(istream& in, Pelotas& PV);
 
-ostream& operator<<(ostream & salida, const Pelotas &PV);
+istream& operator>>(istream& in, Pelota& P);
+
+ostream& operator<<(ostream& out, const Pelotas& PV);
+
+ostream& operator<<(ostream& out, const Pelota& P);
 
 #endif /* UTILIDADES_H */
 
