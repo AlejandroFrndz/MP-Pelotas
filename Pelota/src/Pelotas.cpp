@@ -89,6 +89,7 @@ void Pelotas::Matar(int i){
 void Pelotas::Nacer(){
     Pelota P;
     
+    if(util < 100)
     *this+=P ;
     
 }
