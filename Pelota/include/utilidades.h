@@ -36,9 +36,6 @@ void colisionar(Pelota &P1, Pelota &P2);
 
 void colisionar(Pelotas& PV);
 
-void Add(const Pelota &n1, Pelotas &PV);
-
-
 string ToString(PColor C);
 
 PColor ToPColor(string C);
