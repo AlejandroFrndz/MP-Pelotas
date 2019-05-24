@@ -15,47 +15,56 @@
 using namespace std;
 using namespace miniwin;
 
-void pintar(const Pelota& P) {
-   color((int) P.GetColor());
-   circulo_lleno(P.GetX(), P.GetY(), P.GetRadio());
+void pintar(const pelota& P) {
+   color((int) P.getColor());
+   circulo_lleno(P.getX(), P.getY(), P.getRadio());
 }
 
-void pintar(const Pelotas& Pelotas){
+void pintar(const pelotas& pelotas){
     
-    for(int i = 0; i< Pelotas.util; i++){
-        pintar(Pelotas.v[i]);
+    for(int i = 0; i< pelotas.util; i++){
+        pintar(pelotas.v[i]);
     }
 }
 
-void mover(Pelota &P) {
+void pintar(const simulador& partida, const int n){
+    
+    //borra();
+    pintar(partida.actual);
+    refresca();
+    espera(n);
+            
+}
+
+void mover(pelota &P) {
    const float factor = 0.97;
    
    P.mover();
   
-   if (P.GetX() > vancho() - P.GetRadio()) {
-      P.SetVelocidad(-P.GetVelX()*factor, P.GetVelY());
-      P.SetPosicion(vancho()-P.GetRadio(), P.GetY());
+   if (P.getX() > vancho() - P.getRadio()) {
+      P.setVelocidad(-P.getVelX()*factor, P.getVelY());
+      P.setPosicion(vancho()-P.getRadio(), P.getY());
    } 
-   else if (P.GetX() < P.GetRadio()) {
-      P.SetVelocidad(-P.GetVelX()*factor, P.GetVelY());
-      P.SetPosicion(P.GetRadio(), P.GetY());
+   else if (P.getX() < P.getRadio()) {
+      P.setVelocidad(-P.getVelX()*factor, P.getVelY());
+      P.setPosicion(P.getRadio(), P.getY());
    } 
-   else if (P.GetY() > valto() - P.GetRadio()) {
-      P.SetVelocidad(P.GetVelX(), -P.GetVelY()*factor);
-      P.SetPosicion(P.GetX(), valto() - P.GetRadio());
+   else if (P.getY() > valto() - P.getRadio()) {
+      P.setVelocidad(P.getVelX(), -P.getVelY()*factor);
+      P.setPosicion(P.getX(), valto() - P.getRadio());
    } 
-   else if (P.GetY() < P.GetRadio()) {
-      P.SetVelocidad(P.GetVelX(), -P.GetVelY()*factor);
-      P.SetPosicion(P.GetX(), P.GetRadio());
+   else if (P.getY() < P.getRadio()) {
+      P.setVelocidad(P.getVelX(), -P.getVelY()*factor);
+      P.setPosicion(P.getX(), P.getRadio());
    }
   // P.dy += 0.1;
 }
 
-void mover(Pelotas &Pelotas){
+void mover(pelotas &pelotas){
     const float factor = 0.97;
     
-    for(int i = 0; i < Pelotas.util; i++){
-      mover(Pelotas.v[i]);
+    for(int i = 0; i < pelotas.util; i++){
+      mover(pelotas.v[i]);
     }
 }
 
@@ -73,16 +82,16 @@ void intercambio(PColor& P1, PColor& P2){
     P2 = aux;
 }
 
-void colisionar(Pelota &P1, Pelota &P2){
+void colisionar(pelota &P1, pelota &P2){
         intercambio(P1.dx, P2.dx);
         intercambio(P1.dy, P2.dy);  
         //intercambio(P1.color, P2.color);
          
 }
 
-void colisionar(Pelotas& PV){
+void colisionar(pelotas& PV){
     
-    Pelota P1, P2;
+    pelota P1, P2;
     bool chocado = false;
     int i = 0, j= 0;
     
@@ -98,14 +107,13 @@ void colisionar(Pelotas& PV){
                 
                 if(P1==P2){
                 
-                    if(P1.GetColor() == PColor::VERDE){
-                        if(PV.util < 30)
-                            PV.Nacer();
+                    if(P1.getColor() == PColor::VERDE){
+                        PV.Nacer();
                         colisionar(PV.v[i], PV.v[j]);
                         chocado = true;
                     }
 
-                    if(P1.GetColor() == PColor::ROJO){
+                    if(P1.getColor() == PColor::ROJO){
                       colisionar(PV.v[i], PV.v[j]);
                        chocado = true;
                      }
@@ -113,11 +121,11 @@ void colisionar(Pelotas& PV){
 
                 else{
                     
-                    if(P1.GetColor() == PColor::ROJO)
+                    if(P1.getColor() == PColor::ROJO)
                             PV.Matar(j);
 
 
-                    if (P2.GetColor() == PColor::ROJO )
+                    if (P2.getColor() == PColor::ROJO )
                             PV.Matar(i);
 
                     chocado = true;
@@ -151,9 +159,30 @@ PColor ToPColor(string C){
     return sol;
 }
 
-istream& operator>>(istream& in, Pelotas &PV){
+
+
+istream& operator>>(istream& in, pelota &P){
+    
+    string color_id;
+    double x, y, dx, dy, radio;
+    PColor color;
+    
+    in >> x >> y >> dx >> dy >> radio >> color_id;
+    
+    color = ToPColor(color_id);
+    
+    P.setPosicion(x,y);
+    P.setVelocidad(dx,dy);
+    P.setRadio(radio);
+    P.setColor(color);
+    
+    return in;
+    
+}
+
+istream& operator>>(istream& in, pelotas &PV){
    
-    Pelota P;
+    pelota P;
     int tam;
     
     in >> tam;
@@ -165,36 +194,17 @@ istream& operator>>(istream& in, Pelotas &PV){
     return in;
 }
 
-istream& operator>>(istream& in, Pelota &P){
+ostream& operator<<(ostream& out, const pelotas& PV){
     
-    string color_id;
-    double x, y, dx, dy, radio;
-    PColor color;
+    out << PV.getUtil();
     
-    in >> x >> y >> dx >> dy >> radio >> color_id;
-    
-    color = ToPColor(color_id);
-    
-    P.SetPosicion(x,y);
-    P.SetVelocidad(dx,dy);
-    P.SetRadio(radio);
-    P.SetColor(color);
-    
-    return in;
-    
-}
-
-ostream& operator<<(ostream& out, const Pelotas& PV){
-    
-    out << PV.GetUtil();
-    
-    for(int i = 0; i < PV.GetUtil(); i++)
+    for(int i = 0; i < PV.getUtil(); i++)
         out << PV[i];
     
     return out;
 } 
 
-ostream& operator<<(ostream& out, const Pelota& P){
+ostream& operator<<(ostream& out, const pelota& P){
     
-    out << P.GetX() << " " << P.GetY() << " " << P.GetVelX() << " " << P.GetVelY() << " " << P.GetRadio() << " " << ToString(P.GetColor()) << endl;
+    out << P.getX() << " " << P.getY() << " " << P.getVelX() << " " << P.getVelY() << " " << P.getRadio() << " " << ToString(P.getColor()) << endl;
 }

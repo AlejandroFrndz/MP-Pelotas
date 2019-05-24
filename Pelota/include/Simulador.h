@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   Simulador.h
+ * File:   simulador.h
  * Author: alejandro
  *
  * Created on 14 de mayo de 2019, 11:57
@@ -13,13 +13,30 @@
 
 #ifndef SIMULADOR_H
 #define SIMULADOR_H
+#include "Pelota.h"
+#include "Pelotas.h"
+#include <cstring>
+#include <iostream>
+#include "miniwin.h"
 
-class Simulador {
-public:
-    Simulador();
-    Simulador(const Simulador& orig);
-    virtual ~Simulador();
+using namespace std;
+
+class simulador {
+
 private:
+    int ancho, alto;
+    pelotas original;
+    pelotas actual;
+    
+public:
+    simulador(const string direccion);
+    simulador(const simulador& orig);
+    ~simulador();
+    bool salvar(const string &entrada);
+    pelotas getOriginal();
+    pelotas getActual();
+    void step(const int n);
+    friend void pintar(const simulador& partida, const int n);
 
 };
 

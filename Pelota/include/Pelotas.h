@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   Pelotas.h
+ * File:   pelotas.h
  * Author: alejandro
  *
  * Created on 2 de mayo de 2019, 18:40
@@ -16,30 +16,30 @@
 
 #include "Pelota.h"
 
-class Pelotas{
+class pelotas{
 private :
-    Pelota *v; //vector de pelotas
+    pelota *v; //vector de pelotas
     int capacidad;
     int util;
 public:
-    Pelotas();
-    Pelotas(int cap, int ut);
-    Pelotas(const Pelotas& PS);
-    ~Pelotas();
-    int GetCapacidad() const;
-    int GetUtil() const;
-    void BorrarPelota(int i);
-    void operator+=(const Pelota &n1);
+    pelotas();
+    pelotas(int cap, int ut);
+    pelotas(const pelotas& PS);
+    ~pelotas();
+    int getCapacidad() const;
+    int getUtil() const;
+    void Borrarpelota(int i);
+    void operator+=(const pelota &n1);
     void Matar(int i);
     void Nacer();
     void Realojar();
-    Pelota& GetComponente(int i) const;
-    Pelotas& operator=(const Pelotas& PS);
-    Pelota& operator[](int i);
-    const Pelota& operator[](int i) const;
-    friend void mover(Pelotas &P);
-    friend void pintar(const Pelotas& Pelotas);
-    friend void colisionar(Pelotas& PV);
+    pelota& getComponente(int i) const;
+    pelotas& operator=(const pelotas& PS);
+    pelota& operator[](int i);
+    const pelota& operator[](int i) const;
+    friend void mover(pelotas &P);
+    friend void pintar(const pelotas& pelotas);
+    friend void colisionar(pelotas& PV);
 };
 
 #endif /* PELOTAS_H */

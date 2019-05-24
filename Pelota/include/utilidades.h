@@ -17,36 +17,42 @@
 #include "Pelotas.h"
 #include "Pelota.h"
 #include <string>
+#include "Simulador.h"
 
 using namespace std;
 
-void pintar(const Pelota& P);
+void pintar(const pelota& P);
 
-void pintar(const Pelotas& Pelotas);
+void pintar(const pelotas& pelotas);
 
-void mover(Pelota &P);
+void pintar(const simulador& partida, const int n);
 
-void mover(Pelotas &Pelotas);
+void mover(pelota &P);
+
+void mover(pelotas &pelotas);
 
 void intercambio(float& P1, float& P2);
 
 void intercambio(PColor& P1, PColor& P2);
 
-void colisionar(Pelota &P1, Pelota &P2);
+void colisionar(pelota &P1, pelota &P2);
 
-void colisionar(Pelotas& PV);
+void colisionar(pelotas& PV);
 
-string ToString(PColor C);
+void Add(const pelota &n1, pelotas &PV);
 
-PColor ToPColor(string C);
 
-istream& operator>>(istream& in, Pelotas& PV);
+std::string ToString(PColor C);
 
-istream& operator>>(istream& in, Pelota& P);
+PColor ToPColor(std::string C);
 
-ostream& operator<<(ostream& out, const Pelotas& PV);
+ostream& operator<<(ostream& out, const pelotas& PV);
 
-ostream& operator<<(ostream& out, const Pelota& P);
+ostream& operator<<(ostream& out, const pelota& P);
+
+istream& operator>>(istream& in, pelotas &PV);
+
+istream& operator>>(istream& in, pelotas &PV);
 
 #endif /* UTILIDADES_H */
 

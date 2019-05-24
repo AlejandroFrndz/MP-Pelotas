@@ -18,24 +18,27 @@
 #include "utilidades.h"
 #include "definiciones.h"
 #include "miniwin.h"
+#include "Simulador.h"
 
 using namespace miniwin;
 using namespace std;
  
-int main() {
+/*int main() {
    
     ifstream fin;
     ofstream salida;
     string cabecera;
     int util_final;
-    Pelotas PV;
+    pelotas PV;
     int screenx, screeny;
     
-    fin.open("./data/pelotas.txt");
     
-    if(fin.is_open()){
     
-        fin >> cabecera;
+    
+    
+    
+    
+        //fin >> cabecera;
     
         if(cabecera == "MP−PELOTAS−T−1.0"){
             
@@ -57,7 +60,7 @@ int main() {
                 espera(25);
             }
             
-            salida.open("./data/salida.txt");
+            salida.open("./data/vector_final.txt");
             if(salida.is_open())
                 salida << PV;
             
@@ -75,6 +78,34 @@ int main() {
     
    
     return 0;
+}*/
+
+int main(){
+    simulador partida("data/datos.txt");
+    
+    while(tecla()!= ESCAPE){
+        partida.step(5);
+        pintar(partida,25);
+    }
+    
+     partida.salvar("data/vector_final.txt");
+    
+    pelotas local = partida.getActual();
+    cout <<"estado final: \n";
+    cout << local;
+    
+    /*pelota p1 = partida.getOriginal()[0];
+    pelota p2 = partida.getActual()[0];
+    
+    cout << p1<< "\n"<<p2<<"\n";
+    if(p1==p2)
+        cout << "Iguales\n";
+    else
+        cout << "Diferentes\n";*/
+    return 0;
+    
 }
+
+
 
 

@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   Pelotas.cpp
+ * File:   pelotas.cpp
  * Author: alejandro
  * 
  * Created on 2 de mayo de 2019, 18:40
@@ -13,24 +13,24 @@
 
 #include "Pelotas.h"
 
-Pelotas::Pelotas(){
+pelotas::pelotas(){
     capacidad = 0;
     util = 0;
     v = 0;
 }
 
-Pelotas::Pelotas(int cap, int ut){
+pelotas::pelotas(int cap, int ut){
     capacidad = cap;
     util = ut;
-    v = new Pelota [capacidad];
+    v = new pelota [capacidad];
 }
 
-Pelotas::Pelotas(const Pelotas& PS){
+pelotas::pelotas(const pelotas& PS){
     
     capacidad = PS.capacidad;
     util = PS.util;
     
-    v = new Pelota [capacidad];
+    v = new pelota [capacidad];
     
     for(int i = 0; i < util; i++)
     {
@@ -38,22 +38,22 @@ Pelotas::Pelotas(const Pelotas& PS){
     }
 }
 
-Pelotas::~Pelotas(){
+pelotas::~pelotas(){
     v = 0;
     capacidad = 0;
     util = 0;
     delete [] v;
 }
 
-int Pelotas::GetCapacidad() const{
+int pelotas::getCapacidad() const{
     return capacidad;
     
 }
-int Pelotas::GetUtil() const{
+int pelotas::getUtil() const{
     return util;
 }
 
-void Pelotas::BorrarPelota(int i){
+void pelotas::Borrarpelota(int i){
     for (int j = i; j < capacidad-1; j++){
         v[j] = v[j+1];
     }
@@ -61,12 +61,12 @@ void Pelotas::BorrarPelota(int i){
     capacidad = capacidad -1;
 }
 
-Pelota& Pelotas::GetComponente(int i) const{
+pelota& pelotas::getComponente(int i) const{
     return v[i];
 }
 
-void Pelotas::operator+=(const Pelota &n1){
-    Pelota *v1;
+void pelotas::operator+=(const pelota &n1){
+    pelota *v1;
     
     if (util >= capacidad){
         Realojar();   
@@ -76,29 +76,31 @@ void Pelotas::operator+=(const Pelota &n1){
     util++;
 }
 
-void Pelotas::Matar(int i){
+void pelotas::Matar(int i){
     
     for(int j = i; j < util-1; j++){
         v[j] = v[j+1];
     }
     
     util--;
+   
 }
 
 
-void Pelotas::Nacer(){
-    Pelota P;
-   
-    *this+=P ;
+void pelotas::Nacer(){
+    pelota P;
+    
+    if(util < 100)
+        *this+=P ;
     
 }
 
-void Pelotas::Realojar(){
-    Pelota *v1;
+void pelotas::Realojar(){
+    pelota *v1;
     
     
     capacidad = (capacidad+1)*2;
-    v1 = new Pelota [capacidad];
+    v1 = new pelota [capacidad];
         
     for (int i = 0; i < util; i++){
          v1[i] = v[i];
@@ -109,14 +111,15 @@ void Pelotas::Realojar(){
     
 }
 
-Pelotas& Pelotas::operator=(const Pelotas& PS){
+
+pelotas& pelotas::operator=(const pelotas& PS){
     
     if(this != &PS){
         capacidad = PS.capacidad;
         util = PS.util;
         
         delete [] v;
-        v = new Pelota [capacidad];
+        v = new pelota [capacidad];
 
         for(int i = 0; i < util; i++)
             v[i] = PS.v[i];
@@ -125,11 +128,11 @@ Pelotas& Pelotas::operator=(const Pelotas& PS){
     return *this;
 }
 
-Pelota& Pelotas::operator[](int i){
+pelota& pelotas::operator[](int i){
     return v[i];
 }
 
-const Pelota& Pelotas::operator[](int i) const{
+const pelota& pelotas::operator[](int i) const{
     return v[i];
 }
 

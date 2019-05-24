@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   Pelota.h
+ * File:   pelota.h
  * Author: alejandro
  *
  * Created on 30 de abril de 2019, 13:12
@@ -20,7 +20,7 @@ enum class PColor {
     AMARILLO, MAGENTA, CYAN, BLANCO
 };
 
-class Pelota {
+class pelota {
     private:
     float x;
     float y;
@@ -30,23 +30,23 @@ class Pelota {
     PColor color;
     
 public:
-    Pelota();
-    Pelota(float X, float Y);
-    float GetX() const;
-    float GetY() const;
-    float GetVelX() const;
-    float GetVelY() const;
-    float GetRadio() const;
-    PColor GetColor() const;
-    void SetPosicion(float X, float Y);
-    void SetVelocidad(float DX, float DY);
-    void SetColor(PColor COLOR);
-    void SetRadio(float r);
-    float distancia(const Pelota &n2);
-    bool colisionado(const Pelota &n2);
+    pelota();
+    pelota(float X, float Y);
+    float getX() const;
+    float getY() const;
+    float getVelX() const;
+    float getVelY() const;
+    float getRadio() const;
+    PColor getColor() const;
+    void setPosicion(float X, float Y);
+    void setVelocidad(float DX, float DY);
+    void setColor(PColor COLOR);
+    void setRadio(float r);
+    float distancia(const pelota &n2);
+    bool colisionado(const pelota &n2);
     void mover();
-    friend void colisionar(Pelota &P1, Pelota &P2);
-    bool operator==(const Pelota &P2) const;
+    friend void colisionar(pelota &P1, pelota &P2);
+    bool operator==(const pelota &P2) const;
 };
 
 #endif /* PELOTA_H */
