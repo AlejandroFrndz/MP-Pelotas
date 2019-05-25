@@ -84,7 +84,7 @@ int main(){
     simulador partida("data/datos.txt");
     
     while(tecla()!= ESCAPE){
-        partida.step(5);
+        partida.step(3);
         pintar(partida,25);
     }
     
@@ -103,7 +103,7 @@ int main(){
     
     
     
-    cout << p1 << "\n"<< p2 << "\n";
+    cout << p1 << "\n" << p2 << "\n";
     
    
     

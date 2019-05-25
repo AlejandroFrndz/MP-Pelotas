@@ -51,16 +51,6 @@ simulador::simulador(const string direccion){
     actual = original;
 }
 
-simulador::simulador(const simulador& orig) {
-    
-    ancho = orig.ancho;
-    alto = orig.alto;
-    
-    original = orig.original;
-    actual = orig.actual;
-    
-}
-
 simulador::~simulador() {
     vcierra();
     ancho = 0;
@@ -83,9 +73,6 @@ bool simulador::salvar(const string &entrada){
     }
     
     return salvado;   
-   
-   
-
 }
 
 pelotas simulador::getOriginal(){
@@ -99,7 +86,7 @@ pelotas simulador::getActual(){
 void simulador::step(const int n){
     
     for(int i = 0; i < n; i++){
-        borra();
+        //borra();
         mover(actual);
         colisionar(actual);
     }

@@ -29,7 +29,7 @@ void pintar(const pelotas& pelotas){
 
 void pintar(const simulador& partida, const int n){
     
-    //borra();
+    borra();
     pintar(partida.actual);
     refresca();
     espera(n);

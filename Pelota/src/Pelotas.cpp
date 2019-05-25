@@ -53,18 +53,6 @@ int pelotas::getUtil() const{
     return util;
 }
 
-void pelotas::Borrarpelota(int i){
-    for (int j = i; j < capacidad-1; j++){
-        v[j] = v[j+1];
-    }
-    
-    capacidad = capacidad -1;
-}
-
-pelota& pelotas::getComponente(int i) const{
-    return v[i];
-}
-
 void pelotas::operator+=(const pelota &n1){
     pelota *v1;
     
@@ -86,11 +74,10 @@ void pelotas::Matar(int i){
    
 }
 
-
 void pelotas::Nacer(){
     pelota P;
     
-    if(util < 100)
+    if(util < 50)
         *this+=P ;
     
 }
@@ -110,7 +97,6 @@ void pelotas::Realojar(){
     v = v1;    
     
 }
-
 
 pelotas& pelotas::operator=(const pelotas& PS){
     
@@ -135,4 +121,3 @@ pelota& pelotas::operator[](int i){
 const pelota& pelotas::operator[](int i) const{
     return v[i];
 }
-

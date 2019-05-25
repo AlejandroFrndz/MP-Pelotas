@@ -11,6 +11,9 @@
  * Created on 14 de mayo de 2019, 11:57
  */
 
+//Alumno1: Fernández Alcaide Alejandro
+//Alumno2: Aparcio Martos Francisco José
+
 #ifndef SIMULADOR_H
 #define SIMULADOR_H
 #include "Pelota.h"
@@ -30,7 +33,6 @@ private:
     
 public:
     simulador(const string direccion);
-    simulador(const simulador& orig);
     ~simulador();
     bool salvar(const string &entrada);
     pelotas getOriginal();

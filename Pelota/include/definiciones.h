@@ -11,6 +11,9 @@
  * Created on 2 de mayo de 2019, 16:29
  */
 
+//Alumno1: Fernández Alcaide Alejandro
+//Alumno2: Aparcio Martos Francisco José
+
 #ifndef DEFINICIONES_H
 #define DEFINICIONES_H
 

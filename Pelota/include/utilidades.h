@@ -11,6 +11,9 @@
  * Created on 2 de mayo de 2019, 17:17
  */
 
+//Alumno1: Fernández Alcaide Alejandro
+//Alumno2: Aparcio Martos Francisco José
+
 #ifndef UTILIDADES_H
 #define UTILIDADES_H
 
