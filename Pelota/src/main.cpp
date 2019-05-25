@@ -88,20 +88,29 @@ int main(){
         pintar(partida,25);
     }
     
-     partida.salvar("data/vector_final.txt");
+    bool ok = partida.salvar("data/vector_final.txt");
+    
+    if(!ok)
+        cout << "error de escritura";
+    
     
     pelotas local = partida.getActual();
     cout <<"estado final: \n";
-    cout << local;
+    cout << local << "\n";
     
-    /*pelota p1 = partida.getOriginal()[0];
+    pelota p1 = partida.getOriginal()[0];
     pelota p2 = partida.getActual()[0];
     
-    cout << p1<< "\n"<<p2<<"\n";
+    
+    
+    cout << p1 << "\n"<< p2 << "\n";
+    
+   
+    
     if(p1==p2)
         cout << "Iguales\n";
     else
-        cout << "Diferentes\n";*/
+        cout << "Diferentes\n";
     return 0;
     
 }

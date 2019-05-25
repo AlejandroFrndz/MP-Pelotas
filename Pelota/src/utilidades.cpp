@@ -194,6 +194,13 @@ istream& operator>>(istream& in, pelotas &PV){
     return in;
 }
 
+ostream& operator<<(ostream& out, const pelota& P){
+    
+    out << P.getX() << " " << P.getY() << " " << P.getVelX() << " " << P.getVelY() << " " << P.getRadio() << " " << ToString(P.getColor()) << endl;
+    
+    return out;
+}
+
 ostream& operator<<(ostream& out, const pelotas& PV){
     
     out << PV.getUtil();
@@ -204,7 +211,3 @@ ostream& operator<<(ostream& out, const pelotas& PV){
     return out;
 } 
 
-ostream& operator<<(ostream& out, const pelota& P){
-    
-    out << P.getX() << " " << P.getY() << " " << P.getVelX() << " " << P.getVelY() << " " << P.getRadio() << " " << ToString(P.getColor()) << endl;
-}
