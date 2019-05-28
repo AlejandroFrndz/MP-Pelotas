@@ -24,38 +24,38 @@
 
 using namespace std;
 
-void pintar(const pelota& P);
+void pintar(const Pelota& P);
 
-void pintar(const pelotas& pelotas);
+void pintar(const Pelotas& Pelotas);
 
-void pintar(const simulador& partida, const int n);
+void pintar(const Simulador& partida, const int n);
 
-void mover(pelota &P);
+void mover(Pelota &P);
 
-void mover(pelotas &pelotas);
+void mover(Pelotas &Pelotas);
 
 void intercambio(float& P1, float& P2);
 
 void intercambio(PColor& P1, PColor& P2);
 
-void colisionar(pelota &P1, pelota &P2);
+void colisionar(Pelota &P1, Pelota &P2);
 
-void colisionar(pelotas& PV);
+void colisionar(Pelotas& PV);
 
-void Add(const pelota &n1, pelotas &PV);
+void Add(const Pelota &n1, Pelotas &PV);
 
 
 std::string ToString(PColor C);
 
 PColor ToPColor(std::string C);
 
-ostream& operator<<(ostream& out, const pelotas& PV);
+ostream& operator<<(ostream& out, const Pelotas& PV);
 
-ostream& operator<<(ostream& out, const pelota& P);
+ostream& operator<<(ostream& out, const Pelota& P);
 
-istream& operator>>(istream& in, pelotas &PV);
+istream& operator>>(istream& in, Pelotas &PV);
 
-istream& operator>>(istream& in, pelotas &PV);
+istream& operator>>(istream& in, Pelotas &PV);
 
 #endif /* UTILIDADES_H */
 

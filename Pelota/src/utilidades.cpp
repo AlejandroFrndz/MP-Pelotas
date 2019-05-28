@@ -15,19 +15,19 @@
 using namespace std;
 using namespace miniwin;
 
-void pintar(const pelota& P) {
+void pintar(const Pelota& P) {
    color((int) P.getColor());
    circulo_lleno(P.getX(), P.getY(), P.getRadio());
 }
 
-void pintar(const pelotas& pelotas){
+void pintar(const Pelotas& Pelotas){
     
-    for(int i = 0; i< pelotas.util; i++){
-        pintar(pelotas.v[i]);
+    for(int i = 0; i< Pelotas.util; i++){
+        pintar(Pelotas.v[i]);
     }
 }
 
-void pintar(const simulador& partida, const int n){
+void pintar(const Simulador& partida, const int n){
     
     borra();
     pintar(partida.actual);
@@ -36,7 +36,7 @@ void pintar(const simulador& partida, const int n){
             
 }
 
-void mover(pelota &P) {
+void mover(Pelota &P) {
    const float factor = 0.97;
    
    P.mover();
@@ -60,11 +60,11 @@ void mover(pelota &P) {
   // P.dy += 0.1;
 }
 
-void mover(pelotas &pelotas){
+void mover(Pelotas &Pelotas){
     const float factor = 0.97;
     
-    for(int i = 0; i < pelotas.util; i++){
-      mover(pelotas.v[i]);
+    for(int i = 0; i < Pelotas.util; i++){
+      mover(Pelotas.v[i]);
     }
 }
 
@@ -82,16 +82,16 @@ void intercambio(PColor& P1, PColor& P2){
     P2 = aux;
 }
 
-void colisionar(pelota &P1, pelota &P2){
+void colisionar(Pelota &P1, Pelota &P2){
         intercambio(P1.dx, P2.dx);
         intercambio(P1.dy, P2.dy);  
         //intercambio(P1.color, P2.color);
          
 }
 
-void colisionar(pelotas& PV){
+void colisionar(Pelotas& PV){
     
-    pelota P1, P2;
+    Pelota P1, P2;
     bool chocado = false;
     int i = 0, j= 0;
     
@@ -161,7 +161,7 @@ PColor ToPColor(string C){
 
 
 
-istream& operator>>(istream& in, pelota &P){
+istream& operator>>(istream& in, Pelota &P){
     
     string color_id;
     double x, y, dx, dy, radio;
@@ -180,9 +180,9 @@ istream& operator>>(istream& in, pelota &P){
     
 }
 
-istream& operator>>(istream& in, pelotas &PV){
+istream& operator>>(istream& in, Pelotas &PV){
    
-    pelota P;
+    Pelota P;
     int tam;
     
     in >> tam;
@@ -194,14 +194,14 @@ istream& operator>>(istream& in, pelotas &PV){
     return in;
 }
 
-ostream& operator<<(ostream& out, const pelota& P){
+ostream& operator<<(ostream& out, const Pelota& P){
     
     out << P.getX() << " " << P.getY() << " " << P.getVelX() << " " << P.getVelY() << " " << P.getRadio() << " " << ToString(P.getColor()) << endl;
     
     return out;
 }
 
-ostream& operator<<(ostream& out, const pelotas& PV){
+ostream& operator<<(ostream& out, const Pelotas& PV){
     
     out << PV.getUtil() << "\n";
     

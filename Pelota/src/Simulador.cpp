@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   simulador.cpp
+ * File:   Simulador.cpp
  * Author: alejandro
  * 
  * Created on 14 de mayo de 2019, 11:57
@@ -23,7 +23,7 @@
 using namespace std;
 using namespace miniwin;
 
-simulador::simulador(const string direccion){
+Simulador::Simulador(const string direccion){
     
     ifstream fin;
     string cabecera;
@@ -51,13 +51,13 @@ simulador::simulador(const string direccion){
     actual = original;
 }
 
-simulador::~simulador() {
+Simulador::~Simulador() {
     vcierra();
     ancho = 0;
     alto = 0;
 }
 
-bool simulador::salvar(const string &entrada){
+bool Simulador::salvar(const string &entrada){
     
     bool salvado = false;
     ofstream salida;
@@ -79,15 +79,15 @@ bool simulador::salvar(const string &entrada){
     return salvado;   
 }
 
-pelotas simulador::getOriginal(){
+Pelotas Simulador::getOriginal(){
     return original;
 }
 
-pelotas simulador::getActual(){
+Pelotas Simulador::getActual(){
     return actual;
 }
 
-void simulador::step(const int n){
+void Simulador::step(const int n){
     
     for(int i = 0; i < n; i++){
         //borra();

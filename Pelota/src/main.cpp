@@ -30,7 +30,7 @@ using namespace std;
     ofstream salida;
     string cabecera;
     int util_final;
-    pelotas PV;
+    Pelotas PV;
     int screenx, screeny;
     
     
@@ -80,10 +80,10 @@ using namespace std;
    
     return 0;
 }*/
-
+/*
 int main(){
     srand(time(0));
-    simulador partida("data/pelotas.txt");
+    Simulador partida("data/pelotas.txt");
     
     while(tecla()!= ESCAPE){
         partida.step(3);
@@ -96,12 +96,12 @@ int main(){
         cout << "error de escritura";
     
     
-    pelotas local = partida.getActual();
+    Pelotas local = partida.getActual();
     cout <<"estado final: \n";
     cout << local << "\n";
     
-    pelota p1 = partida.getOriginal()[0];
-    pelota p2 = partida.getActual()[0];
+    Pelota p1 = partida.getOriginal()[0];
+    Pelota p2 = partida.getActual()[0];
     
     
     
@@ -116,7 +116,35 @@ int main(){
     return 0;
     
 }
+*/
 
 
 
+// usa la clase Simulador y sobrecarga de operadores
+
+int main() {
+
+   Simulador partida("data/pelotas.txt");
+
+   while (tecla() != ESCAPE) {
+      partida.step(100);
+      pintar(partida,25);
+   }   
+   bool ok = partida.salvar("data/salida.txt");
+   if (!ok)
+       std::cerr << "error de escritura";
+   
+   // probando la sobrecarga de << de Pelotas
+   Pelotas local = partida.getActual();
+   std::cout << "estado final: \n";
+   std::cout << local;
+   Pelota p1 = partida.getOriginal()[0];
+   Pelota p2 = partida.getActual()[0];
+      std::cout << p1 << "\n" <<  p2 << "son ";
+   if (p1==p2)
+       std::cout << "iguales \n";
+   else
+       std::cout << "diferentes \n";
+   return 0;
+}
 

@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   pelotas.cpp
+ * File:   Pelotas.cpp
  * Author: alejandro
  * 
  * Created on 2 de mayo de 2019, 18:40
@@ -13,24 +13,24 @@
 
 #include "Pelotas.h"
 
-pelotas::pelotas(){
+Pelotas::Pelotas(){
     capacidad = 0;
     util = 0;
     v = 0;
 }
 
-pelotas::pelotas(int cap, int ut){
+Pelotas::Pelotas(int cap, int ut){
     capacidad = cap;
     util = ut;
-    v = new pelota [capacidad];
+    v = new Pelota [capacidad];
 }
 
-pelotas::pelotas(const pelotas& PS){
+Pelotas::Pelotas(const Pelotas& PS){
     
     capacidad = PS.capacidad;
     util = PS.util;
     
-    v = new pelota [capacidad];
+    v = new Pelota [capacidad];
     
     for(int i = 0; i < util; i++)
     {
@@ -38,23 +38,23 @@ pelotas::pelotas(const pelotas& PS){
     }
 }
 
-pelotas::~pelotas(){
+Pelotas::~Pelotas(){
     v = 0;
     capacidad = 0;
     util = 0;
     delete [] v;
 }
 
-int pelotas::getCapacidad() const{
+int Pelotas::getCapacidad() const{
     return capacidad;
     
 }
-int pelotas::getUtil() const{
+int Pelotas::getUtil() const{
     return util;
 }
 
-void pelotas::operator+=(const pelota &n1){
-    pelota *v1;
+void Pelotas::operator+=(const Pelota &n1){
+    Pelota *v1;
     
     if (util >= capacidad){
         Realojar();   
@@ -64,7 +64,7 @@ void pelotas::operator+=(const pelota &n1){
     util++;
 }
 
-void pelotas::Matar(int i){
+void Pelotas::Matar(int i){
     
     for(int j = i; j < util-1; j++){
         v[j] = v[j+1];
@@ -74,8 +74,8 @@ void pelotas::Matar(int i){
    
 }
 
-void pelotas::Nacer(float radio){
-    pelota P;
+void Pelotas::Nacer(float radio){
+    Pelota P;
     
     P.setRadio(radio);
     
@@ -84,12 +84,12 @@ void pelotas::Nacer(float radio){
     
 }
 
-void pelotas::Realojar(){
-    pelota *v1;
+void Pelotas::Realojar(){
+    Pelota *v1;
     
     
     capacidad = (capacidad+1)*2;
-    v1 = new pelota [capacidad];
+    v1 = new Pelota [capacidad];
         
     for (int i = 0; i < util; i++){
          v1[i] = v[i];
@@ -100,14 +100,14 @@ void pelotas::Realojar(){
     
 }
 
-pelotas& pelotas::operator=(const pelotas& PS){
+Pelotas& Pelotas::operator=(const Pelotas& PS){
     
     if(this != &PS){
         capacidad = PS.capacidad;
         util = PS.util;
         
         delete [] v;
-        v = new pelota [capacidad];
+        v = new Pelota [capacidad];
 
         for(int i = 0; i < util; i++)
             v[i] = PS.v[i];
@@ -116,10 +116,10 @@ pelotas& pelotas::operator=(const pelotas& PS){
     return *this;
 }
 
-pelota& pelotas::operator[](int i){
+Pelota& Pelotas::operator[](int i){
     return v[i];
 }
 
-const pelota pelotas::operator[](int i) const{
+const Pelota Pelotas::operator[](int i) const{
     return v[i];
 }

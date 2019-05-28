@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   simulador.h
+ * File:   Simulador.h
  * Author: alejandro
  *
  * Created on 14 de mayo de 2019, 11:57
@@ -24,21 +24,21 @@
 
 using namespace std;
 
-class simulador {
+class Simulador {
 
 private:
     int ancho, alto;
-    pelotas original;
-    pelotas actual;
+    Pelotas original;
+    Pelotas actual;
     
 public:
-    simulador(const string direccion);
-    ~simulador();
+    Simulador(const string direccion);
+    ~Simulador();
     bool salvar(const string &entrada);
-    pelotas getOriginal();
-    pelotas getActual();
+    Pelotas getOriginal();
+    Pelotas getActual();
     void step(const int n);
-    friend void pintar(const simulador& partida, const int n);
+    friend void pintar(const Simulador& partida, const int n);
 
 };
 

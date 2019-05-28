@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   pelota.cpp
+ * File:   Pelota.cpp
  * Author: alejandro
  * 
  * Created on 30 de abril de 2019, 13:12
@@ -19,16 +19,16 @@
 
 using namespace std;
 
-pelota::pelota() {
-    x = (rand());
-    y = (rand());
+Pelota::Pelota() {
+    x = (rand() % 3840);
+    y = (rand() % 2160);
     dx = (rand() % MAX_VEL);
     dy = (rand() % MAX_VEL);
     radio = 30;
     color = PColor::VERDE;
 }
 
-pelota::pelota(float X, float Y) {
+Pelota::Pelota(float X, float Y) {
     x = X;
     y = Y;
     dx = dy = 1.0;
@@ -36,7 +36,7 @@ pelota::pelota(float X, float Y) {
     radio = 40;
 }
 
-pelota::pelota(float tamanio) {
+Pelota::Pelota(float tamanio) {
     x = 0;
     y = 0;
     dx = (rand() % MAX_VEL);
@@ -45,36 +45,36 @@ pelota::pelota(float tamanio) {
     radio = tamanio;
 }
 
-float pelota::getX() const{
+float Pelota::getX() const{
     return x;
 }
 
-float pelota::getY() const{
+float Pelota::getY() const{
     return y;
 }
 
-float pelota::getVelX() const{
+float Pelota::getVelX() const{
     return dx;
 }
 
-float pelota::getVelY() const{
+float Pelota::getVelY() const{
     return dy;
 }
 
-float pelota::getRadio() const{
+float Pelota::getRadio() const{
     return radio;
 }
 
-PColor pelota::getColor() const{
+PColor Pelota::getColor() const{
     return color;
 }
 
-void pelota::setPosicion(float X, float Y){
+void Pelota::setPosicion(float X, float Y){
     x = X;
     y = Y;
 }
 
-void pelota::setVelocidad(float DX, float DY){
+void Pelota::setVelocidad(float DX, float DY){
     
     if(DX < MAX_VEL && DY < MAX_VEL)
     {
@@ -83,28 +83,28 @@ void pelota::setVelocidad(float DX, float DY){
     }
 }
 
-void pelota::setColor(PColor COLOR){
+void Pelota::setColor(PColor COLOR){
     
     color = COLOR;
 }
 
-void pelota::setRadio(float r){
+void Pelota::setRadio(float r){
     radio = r;
 }
 
-float pelota::distancia(const pelota &n2){
+float Pelota::distancia(const Pelota &n2){
     return sqrt(pow(x-n2.getX(),2)+pow(y-n2.getY(),2));
 }
 
-bool pelota::colisionado(const pelota &n2){
+bool Pelota::colisionado(const Pelota &n2){
     return this->distancia(n2) < getRadio() + n2.getRadio() + UMBRAL;
 }
 
-void pelota::mover(){
+void Pelota::mover(){
     this->setPosicion(x+dx,y+dy);
 }
 
-bool pelota::operator==(const pelota &P2) const{
+bool Pelota::operator==(const Pelota &P2) const{
     return (ToString(color) == ToString(P2.color) && radio == P2.radio);
 }
   

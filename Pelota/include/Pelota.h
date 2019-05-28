@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   pelota.h
+ * File:   Pelota.h
  * Author: alejandro
  *
  * Created on 30 de abril de 2019, 13:12
@@ -23,7 +23,7 @@ enum class PColor {
     AMARILLO, MAGENTA, CYAN, BLANCO
 };
 
-class pelota {
+class Pelota {
     private:
     float x;
     float y;
@@ -34,9 +34,9 @@ class pelota {
     
 public:
     //Constructores
-    pelota();
-    pelota(float X, float Y);
-    pelota(float tamanio);
+    Pelota();
+    Pelota(float X, float Y);
+    Pelota(float tamanio);
     //Consultores
     float getX() const;
     float getY() const;
@@ -50,13 +50,13 @@ public:
     void setColor(PColor COLOR);
     void setRadio(float r);
     //Métodos
-    float distancia(const pelota &n2);
-    bool colisionado(const pelota &n2);
+    float distancia(const Pelota &n2);
+    bool colisionado(const Pelota &n2);
     void mover();
     //Funciones externas
-    friend void colisionar(pelota &P1, pelota &P2);
+    friend void colisionar(Pelota &P1, Pelota &P2);
     //Operadores
-    bool operator==(const pelota &P2) const;
+    bool operator==(const Pelota &P2) const;
 };
 
 #endif /* PELOTA_H */
