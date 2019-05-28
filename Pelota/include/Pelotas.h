@@ -36,13 +36,13 @@ public:
     int getUtil() const;
     //Métodos
     void Matar(int i);
-    void Nacer();
+    void Nacer(float radio);
     void Realojar();
     //Operadores
     void operator+=(const pelota &n1);
     pelotas& operator=(const pelotas& PS);
     pelota& operator[](int i);
-    const pelota& operator[](int i) const;
+    const pelota operator[](int i) const;
     //Funciones externas
     friend void mover(pelotas &P);
     friend void pintar(const pelotas& pelotas);

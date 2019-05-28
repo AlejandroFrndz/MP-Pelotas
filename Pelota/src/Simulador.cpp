@@ -65,6 +65,7 @@ bool simulador::salvar(const string &entrada){
     salida.open(entrada);
     
     if(salida.is_open()){
+        //salida << 
         salida << actual;
 
         salida.close();

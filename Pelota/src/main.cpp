@@ -81,14 +81,14 @@ using namespace std;
 }*/
 
 int main(){
-    simulador partida("data/datos.txt");
+    simulador partida("data/pelotas.txt");
     
     while(tecla()!= ESCAPE){
         partida.step(3);
         pintar(partida,25);
     }
     
-    bool ok = partida.salvar("data/vector_final.txt");
+    bool ok = partida.salvar("data/salida.txt");
     
     if(!ok)
         cout << "error de escritura";

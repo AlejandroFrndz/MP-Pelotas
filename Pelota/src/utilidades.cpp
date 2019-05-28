@@ -108,7 +108,7 @@ void colisionar(pelotas& PV){
                 if(P1==P2){
                 
                     if(P1.getColor() == PColor::VERDE){
-                        PV.Nacer();
+                        PV.Nacer(P1.getRadio());
                         colisionar(PV.v[i], PV.v[j]);
                         chocado = true;
                     }

@@ -24,8 +24,8 @@ pelota::pelota() {
     
     srand(time(0));
     
-    x = (rand() % 800);
-    y = (rand() % 600);
+    x = 0;//(rand() % 800);
+    y = 0;//(rand() % 600);
     dx = (rand() % MAX_VEL);
     dy = (rand() % MAX_VEL);
     radio = 30;
@@ -38,6 +38,15 @@ pelota::pelota(float X, float Y) {
     dx = dy = 1.0;
     color = PColor::ROJO;
     radio = 40;
+}
+
+pelota::pelota(float tamanio) {
+    x = 0;
+    y = 0;
+    dx = (rand() % MAX_VEL);
+    dy = (rand() % MAX_VEL);
+    color = PColor::VERDE;
+    radio = tamanio;
 }
 
 float pelota::getX() const{

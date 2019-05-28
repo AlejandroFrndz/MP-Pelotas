@@ -36,6 +36,7 @@ public:
     //Constructores
     pelota();
     pelota(float X, float Y);
+    pelota(float tamanio);
     //Consultores
     float getX() const;
     float getY() const;
