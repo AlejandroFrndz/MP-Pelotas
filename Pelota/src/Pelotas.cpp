@@ -118,6 +118,6 @@ pelota& pelotas::operator[](int i){
     return v[i];
 }
 
-const pelota& pelotas::operator[](int i) const{
+const pelota pelotas::operator[](int i) const{
     return v[i];
 }
