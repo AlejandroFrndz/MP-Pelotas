@@ -203,7 +203,7 @@ ostream& operator<<(ostream& out, const pelota& P){
 
 ostream& operator<<(ostream& out, const pelotas& PV){
     
-    out << PV.getUtil();
+    out << PV.getUtil() << "\n";
     
     for(int i = 0; i < PV.getUtil(); i++)
         out << PV[i];

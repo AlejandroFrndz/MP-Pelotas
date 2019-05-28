@@ -65,7 +65,10 @@ bool simulador::salvar(const string &entrada){
     salida.open(entrada);
     
     if(salida.is_open()){
-        //salida << 
+        salida << "MP−PELOTAS−T−1.0" << "\n";
+        salida << alto << "\n";
+        salida << ancho << "\n";
+        //salida << actual.getUtil() << endl;
         salida << actual;
 
         salida.close();

@@ -16,16 +16,12 @@
 #include "utilidades.h"
 #include <cstdlib>
 #include <cmath>
-#include <ctime>
 
 using namespace std;
 
 pelota::pelota() {
-    
-    srand(time(0));
-    
-    x = 0;//(rand() % 800);
-    y = 0;//(rand() % 600);
+    x = (rand());
+    y = (rand());
     dx = (rand() % MAX_VEL);
     dy = (rand() % MAX_VEL);
     radio = 30;

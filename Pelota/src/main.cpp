@@ -14,6 +14,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <cstring>
+#include <ctime>
 #include "Pelota.h"
 #include "utilidades.h"
 #include "definiciones.h"
@@ -81,6 +82,7 @@ using namespace std;
 }*/
 
 int main(){
+    srand(time(0));
     simulador partida("data/pelotas.txt");
     
     while(tecla()!= ESCAPE){

@@ -75,7 +75,9 @@ void pelotas::Matar(int i){
 }
 
 void pelotas::Nacer(float radio){
-    pelota P(radio);
+    pelota P;
+    
+    P.setRadio(radio);
     
     if(util < 50)
         *this+=P ;
