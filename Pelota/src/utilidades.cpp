@@ -165,16 +165,13 @@ istream& operator>>(istream& in, Pelota &P){
     
     string color_id;
     double x, y, dx, dy, radio;
-    PColor color;
     
     in >> x >> y >> dx >> dy >> radio >> color_id;
-    
-    color = ToPColor(color_id);
     
     P.setPosicion(x,y);
     P.setVelocidad(dx,dy);
     P.setRadio(radio);
-    P.setColor(color);
+    P.setColor(ToPColor(color_id));
     
     return in;
     
