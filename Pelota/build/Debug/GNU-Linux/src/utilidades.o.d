@@ -1,19 +1,19 @@
 build/Debug/GNU-Linux/src/utilidades.o: src/utilidades.cpp \
- include/Pelota.h include/definiciones.h include/utilidades.h \
- include/Pelotas.h include/Pelota.h include/Simulador.h include/miniwin.h \
- include/definiciones.h include/miniwin.h include/Pelotas.h
+ include/pelota.h include/definiciones.h include/utilidades.h \
+ include/pelotas.h include/pelota.h include/simulador.h include/miniwin.h \
+ include/definiciones.h include/miniwin.h include/pelotas.h
 
-include/Pelota.h:
+include/pelota.h:
 
 include/definiciones.h:
 
 include/utilidades.h:
 
-include/Pelotas.h:
+include/pelotas.h:
 
-include/Pelota.h:
+include/pelota.h:
 
-include/Simulador.h:
+include/simulador.h:
 
 include/miniwin.h:
 
@@ -21,4 +21,4 @@ include/definiciones.h:
 
 include/miniwin.h:
 
-include/Pelotas.h:
+include/pelotas.h:

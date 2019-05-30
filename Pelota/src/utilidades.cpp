@@ -4,29 +4,29 @@
  * and open the template in the editor.
  */
 
-#include "Pelota.h"
+#include "pelota.h"
 #include "utilidades.h"
 #include "definiciones.h"
 #include "miniwin.h"
-#include "Pelotas.h"
+#include "pelotas.h"
 #include <cstring>
 #include <fstream>
 
 using namespace std;
 using namespace miniwin;
-
+//Función para pintar 1 pelota
 void pintar(const Pelota& P) {
    color((int) P.getColor());
    circulo_lleno(P.getX(), P.getY(), P.getRadio());
 }
-
+//Función para pintar un vector de pelotas
 void pintar(const Pelotas& Pelotas){
     
     for(int i = 0; i< Pelotas.util; i++){
         pintar(Pelotas.v[i]);
     }
 }
-
+//Función para pintar las pelotas de una partida
 void pintar(const Simulador& partida, const int n){
     
     borra();
@@ -35,7 +35,7 @@ void pintar(const Simulador& partida, const int n){
     espera(n);
             
 }
-
+//Función que mueve 1 pelota y las mantiene en los límites de la ventana
 void mover(Pelota &P) {
    const float factor = 0.97;
    
@@ -59,7 +59,7 @@ void mover(Pelota &P) {
    }
   // P.dy += 0.1;
 }
-
+//Función para mover un vector de pelotas
 void mover(Pelotas &Pelotas){
     const float factor = 0.97;
     
@@ -67,28 +67,31 @@ void mover(Pelotas &Pelotas){
       mover(Pelotas.v[i]);
     }
 }
-
+//Función para realizar el intercambio de 2 variables de tipo float
 void intercambio(float& P1, float& P2){
     float aux;
     aux = P1;
     P1 = P2;
     P2 = aux;
 }
-
+//Función para intercambiar 2 variables de tipo PColor
 void intercambio(PColor& P1, PColor& P2){
     PColor aux;
     aux = P1;
     P1 = P2;
     P2 = aux;
 }
-
+//Función que realiza el choque de 2 pelotas intercambiando sus posiciones. (Y opcionalmente su color)
 void colisionar(Pelota &P1, Pelota &P2){
         intercambio(P1.dx, P2.dx);
         intercambio(P1.dy, P2.dy);  
         //intercambio(P1.color, P2.color);
          
 }
-
+//Función para realizar el choque de todas las pelotas del vector. Aquí se tienen en consideración las reglas del juego
+//Si una pelota verde choca con otra verde, intercambian velocidades y nace otra pelota verde con atributos aleatorios y el radio de los padres
+//Si una pelota roja choca con una verde, la verde muere y la roja continúa su camino inalterada
+//Si chocan 2 pelotas rojas se intercambian las velocidades
 void colisionar(Pelotas& PV){
     
     Pelota P1, P2;
@@ -134,7 +137,7 @@ void colisionar(Pelotas& PV){
         }
     }
 }
-
+//Función para convertir un dato PColor en string
 string ToString(PColor C){
     
     string sol;
@@ -146,7 +149,7 @@ string ToString(PColor C){
     
     return sol;
 }
-
+//Función para convertir un dato string a PColor
 PColor ToPColor(string C){
     
     PColor sol;
@@ -158,25 +161,20 @@ PColor ToPColor(string C){
     
     return sol;
 }
-
-
-
+//Operador de lectura de 1 pelota
 istream& operator>>(istream& in, Pelota &P){
     
     string color_id;
     double x, y, dx, dy, radio;
     
     in >> x >> y >> dx >> dy >> radio >> color_id;
-    
-    P.setPosicion(x,y);
-    P.setVelocidad(dx,dy);
-    P.setRadio(radio);
-    P.setColor(ToPColor(color_id));
+        
+    P.setPelota(x,y,dx,dy,radio,ToPColor(color_id));
     
     return in;
     
 }
-
+//Operador de lectura de un vector de pelotas
 istream& operator>>(istream& in, Pelotas &PV){
    
     Pelota P;
@@ -190,14 +188,14 @@ istream& operator>>(istream& in, Pelotas &PV){
     
     return in;
 }
-
+//Operador de escritura de 1 pelota
 ostream& operator<<(ostream& out, const Pelota& P){
     
     out << P.getX() << " " << P.getY() << " " << P.getVelX() << " " << P.getVelY() << " " << P.getRadio() << " " << ToString(P.getColor()) << endl;
     
     return out;
 }
-
+//Operador de escritura de un vector de pelotas
 ostream& operator<<(ostream& out, const Pelotas& PV){
     
     out << PV.getUtil() << "\n";

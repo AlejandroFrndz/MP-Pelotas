@@ -17,7 +17,15 @@
 #ifndef DEFINICIONES_H
 #define DEFINICIONES_H
 
+enum class PColor {
+    NEGRO, ROJO, VERDE, AZUL,
+    AMARILLO, MAGENTA, CYAN, BLANCO
+};
+
+const int MAX_ANCHO = 800;
+const int MAX_ALTO = 600;
 const int MAX_VEL = 20;
+const int MAX_RADIO = 30;
 const double UMBRAL = 0.025;
 
 #endif /* DEFINICIONES_H */

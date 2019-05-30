@@ -4,11 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>include/Pelota.h</itemPath>
-      <itemPath>include/Pelotas.h</itemPath>
-      <itemPath>include/Simulador.h</itemPath>
       <itemPath>include/definiciones.h</itemPath>
       <itemPath>include/miniwin.h</itemPath>
+      <itemPath>include/pelota.h</itemPath>
+      <itemPath>include/pelotas.h</itemPath>
+      <itemPath>include/simulador.h</itemPath>
       <itemPath>include/utilidades.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -18,11 +18,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>src/Pelota.cpp</itemPath>
-      <itemPath>src/Pelotas.cpp</itemPath>
-      <itemPath>src/Simulador.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
       <itemPath>src/miniwin.cpp</itemPath>
+      <itemPath>src/pelota.cpp</itemPath>
+      <itemPath>src/pelotas.cpp</itemPath>
+      <itemPath>src/simulador.cpp</itemPath>
       <itemPath>src/utilidades.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -57,27 +57,27 @@
           <commandLine>-pthread -lX11</commandLine>
         </linkerTool>
       </compileType>
-      <item path="include/Pelota.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Pelotas.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Simulador.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/definiciones.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/miniwin.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/pelota.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/pelotas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/simulador.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/utilidades.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/Pelota.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/Pelotas.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/Simulador.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/miniwin.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/pelota.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/pelotas.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/simulador.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/utilidades.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -102,27 +102,27 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="include/Pelota.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Pelotas.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/Simulador.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/definiciones.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/miniwin.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="include/pelota.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/pelotas.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/simulador.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="include/utilidades.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/Pelota.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/Pelotas.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/Simulador.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/miniwin.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/pelota.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/pelotas.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/simulador.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/utilidades.cpp" ex="false" tool="1" flavor2="0">
       </item>

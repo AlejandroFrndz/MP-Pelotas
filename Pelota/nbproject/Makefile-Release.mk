@@ -35,11 +35,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/src/Pelota.o \
-	${OBJECTDIR}/src/Pelotas.o \
-	${OBJECTDIR}/src/Simulador.o \
 	${OBJECTDIR}/src/main.o \
 	${OBJECTDIR}/src/miniwin.o \
+	${OBJECTDIR}/src/pelota.o \
+	${OBJECTDIR}/src/pelotas.o \
+	${OBJECTDIR}/src/simulador.o \
 	${OBJECTDIR}/src/utilidades.o
 
 
@@ -67,21 +67,6 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pelota: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pelota ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/src/Pelota.o: src/Pelota.cpp
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Pelota.o src/Pelota.cpp
-
-${OBJECTDIR}/src/Pelotas.o: src/Pelotas.cpp
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Pelotas.o src/Pelotas.cpp
-
-${OBJECTDIR}/src/Simulador.o: src/Simulador.cpp
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Simulador.o src/Simulador.cpp
-
 ${OBJECTDIR}/src/main.o: src/main.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
@@ -91,6 +76,21 @@ ${OBJECTDIR}/src/miniwin.o: src/miniwin.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/miniwin.o src/miniwin.cpp
+
+${OBJECTDIR}/src/pelota.o: src/pelota.cpp
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/pelota.o src/pelota.cpp
+
+${OBJECTDIR}/src/pelotas.o: src/pelotas.cpp
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/pelotas.o src/pelotas.cpp
+
+${OBJECTDIR}/src/simulador.o: src/simulador.cpp
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/simulador.o src/simulador.cpp
 
 ${OBJECTDIR}/src/utilidades.o: src/utilidades.cpp
 	${MKDIR} -p ${OBJECTDIR}/src

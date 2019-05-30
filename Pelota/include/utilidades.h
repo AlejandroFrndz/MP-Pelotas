@@ -17,10 +17,10 @@
 #ifndef UTILIDADES_H
 #define UTILIDADES_H
 
-#include "Pelotas.h"
-#include "Pelota.h"
+#include "pelotas.h"
+#include "pelota.h"
 #include <string>
-#include "Simulador.h"
+#include "simulador.h"
 
 using namespace std;
 
