@@ -39,6 +39,12 @@ public:
     //Consultores
     Pelotas getOriginal() const;
     Pelotas getActual() const;
+    int getAncho() const;
+    int getAlto() const;
+    //Modificadores
+    void SetScreen(int anch, int alt);
+    void SetOriginal(const Pelotas& PV);
+    void SetActual(const Pelotas& PV);
     //Métodos
     bool salvar(const string &entrada);
     void step(const int n);
@@ -48,4 +54,3 @@ public:
 };
 
 #endif /* SIMULADOR_H */
-

@@ -161,7 +161,7 @@ PColor ToPColor(string C){
     
     return sol;
 }
-//Operador de lectura de 1 pelota
+//Operador de lectura de Pelota
 istream& operator>>(istream& in, Pelota &P){
     
     string color_id;
@@ -174,8 +174,8 @@ istream& operator>>(istream& in, Pelota &P){
     return in;
     
 }
-//Operador de lectura de un vector de pelotas
-istream& operator>>(istream& in, Pelotas &PV){
+//Operador de lectura de Pelotas
+istream& operator>>(istream& in, Pelotas& PV){
    
     Pelota P;
     int tam;
@@ -188,14 +188,31 @@ istream& operator>>(istream& in, Pelotas &PV){
     
     return in;
 }
-//Operador de escritura de 1 pelota
+//Operador de lectura de Simulador
+istream& operator>>(istream& in, Simulador& Partida){
+    
+    Pelotas PV;
+    int anch, alt;
+    
+    in >> anch >> alt;
+    
+    Partida.SetScreen(anch, alt);
+    
+    in >> PV;
+    
+    Partida.SetOriginal(PV);
+    Partida.SetActual(PV);
+    
+    return in;
+}
+//Operador de escritura de Pelota
 ostream& operator<<(ostream& out, const Pelota& P){
     
     out << P.getX() << " " << P.getY() << " " << P.getVelX() << " " << P.getVelY() << " " << P.getRadio() << " " << ToString(P.getColor()) << endl;
     
     return out;
 }
-//Operador de escritura de un vector de pelotas
+//Operador de escritura de Pelotas
 ostream& operator<<(ostream& out, const Pelotas& PV){
     
     out << PV.getUtil() << "\n";
@@ -205,4 +222,11 @@ ostream& operator<<(ostream& out, const Pelotas& PV){
     
     return out;
 } 
-
+//Operador de escritura de Simulador
+ostream& operator<<(ostream& out, const Simulador& Partida){
+    
+        out << "MP−PELOTAS−T−1.0" << "\n";
+        out << Partida.getAncho() << "\n";
+        out << Partida.getAlto() << "\n";
+        out << Partida.getActual();
+}

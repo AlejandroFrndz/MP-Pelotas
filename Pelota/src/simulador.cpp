@@ -34,28 +34,16 @@ Simulador::Simulador(const string direccion){
     fin.open(direccion);
     
     if(fin.is_open()){
-    
         fin >> cabecera;
     
         if(cabecera == "MP−PELOTAS−T−1.0"){
-            
-            fin >> ancho;
-            if(ancho < 0 || ancho > MAX_ANCHO)
-                ancho = MAX_ANCHO;
-            fin >> alto;
-            if(alto < 0 || alto > MAX_ALTO)
-                alto = MAX_ALTO;
-            
-            fin >> original;
+            fin >> *this;
         
             fin.close();
         
             vredimensiona(ancho, alto);
-           
       }
    }
-    
-    actual = original;
 }
 //Destructor que cierra la ventana de miniwin
 Simulador::~Simulador() {
@@ -72,10 +60,7 @@ bool Simulador::salvar(const string &entrada){
     salida.open(entrada);
     
     if(salida.is_open()){
-        salida << "MP−PELOTAS−T−1.0" << "\n";
-        salida << ancho << "\n";
-        salida << alto << "\n";
-        salida << actual;
+        salida << *this;
 
         salida.close();
         
@@ -92,7 +77,15 @@ Pelotas Simulador::getOriginal() const{
 Pelotas Simulador::getActual() const{
     return actual;
 }
-//Métodod step
+//Consultor
+int Simulador::getAncho() const{
+    return ancho;
+}
+//Consultor
+int Simulador::getAlto() const{
+    return alto;
+}
+//Método step
 void Simulador::step(const int n){
     
     for(int i = 0; i < n; i++){
@@ -100,4 +93,24 @@ void Simulador::step(const int n){
         colisionar(actual);
     }
 }
-
+//Modificador del tamaño de la ventana de miniwin. Se asegura que se recibe un tamaño válido
+//que no supera el máximo establecido en definiciones.h
+void Simulador::SetScreen(int anch, int alt){
+    if(anch > 0 && anch <= MAX_ANCHO)
+        ancho = anch;
+    else
+        ancho = MAX_ANCHO;
+                
+    if(alt > 0 && alt <= MAX_ALTO)
+        alto = alt;
+    else
+        alto = MAX_ALTO;
+}
+//Modificador del vector de pelotas original usado en la lectura de Simulador
+void Simulador::SetOriginal(const Pelotas& PV){
+    original = PV;
+}
+//Modificador del vector de pelotas actual usado en la lectura de Simulador
+void Simulador::SetActual(const Pelotas& PV){
+    actual = PV;
+}

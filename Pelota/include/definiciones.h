@@ -29,4 +29,3 @@ const int MAX_RADIO = 30;
 const double UMBRAL = 0.025;
 
 #endif /* DEFINICIONES_H */
-

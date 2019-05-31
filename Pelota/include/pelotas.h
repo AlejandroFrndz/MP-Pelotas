@@ -50,4 +50,3 @@ public:
 };
 
 #endif /* PELOTAS_H */
-

@@ -28,7 +28,7 @@ using namespace miniwin;
 
 // usa la clase Simulador y sobrecarga de operadores
 
-int main() {
+int main(){
     
     srand(time(0));
     

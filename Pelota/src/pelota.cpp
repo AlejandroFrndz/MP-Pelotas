@@ -125,4 +125,3 @@ void Pelota::mover(){
 bool Pelota::operator==(const Pelota &P2) const{
     return (ToString(color) == ToString(P2.color) && radio == P2.radio);
 }
-  
