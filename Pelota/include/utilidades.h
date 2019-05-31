@@ -12,7 +12,7 @@
  */
 
 //Alumno1: Fernández Alcaide Alejandro
-//Alumno2: Aparcio Martos Francisco José
+//Alumno2: Aparicio Martos Francisco José
 
 #ifndef UTILIDADES_H
 #define UTILIDADES_H
