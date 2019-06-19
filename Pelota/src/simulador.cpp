@@ -36,7 +36,7 @@ Simulador::Simulador(const string direccion){
     if(fin.is_open()){
         fin >> cabecera;
     
-        if(cabecera == "MP−PELOTAS−T−1.0"){
+        if(cabecera == "MP-PELOTAS−T−1.0"){
             fin >> *this;
         
             fin.close();
